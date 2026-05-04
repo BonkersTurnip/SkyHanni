@@ -12,6 +12,7 @@ import at.hannibal2.skyhanni.features.gui.customscoreboard.elements.ScoreboardEl
 import at.hannibal2.skyhanni.features.gui.customscoreboard.elements.ScoreboardElementEvents
 import at.hannibal2.skyhanni.features.gui.customscoreboard.elements.ScoreboardElementFooter
 import at.hannibal2.skyhanni.features.gui.customscoreboard.elements.ScoreboardElementGems
+import at.hannibal2.skyhanni.features.gui.customscoreboard.elements.ScoreboardElementGodPotion
 import at.hannibal2.skyhanni.features.gui.customscoreboard.elements.ScoreboardElementHeat
 import at.hannibal2.skyhanni.features.gui.customscoreboard.elements.ScoreboardElementIsland
 import at.hannibal2.skyhanni.features.gui.customscoreboard.elements.ScoreboardElementLobbyCode
@@ -63,6 +64,7 @@ enum class ScoreboardConfigElement(val element: ScoreboardElement) {
     POWER(ScoreboardElementPower),
     TUNING(ScoreboardElementTuning),
     COOKIE(ScoreboardElementCookie),
+    GOD_POTION(ScoreboardElementGodPotion),
     OBJECTIVE(ScoreboardElementObjective),
     SLAYER(ScoreboardElementSlayer),
     QUIVER(ScoreboardElementQuiver),
@@ -122,6 +124,7 @@ enum class ScoreboardConfigElement(val element: ScoreboardElement) {
             EMPTY_LINE3,
             EVENTS,
             COOKIE,
+            GOD_POTION,
             QUIVER,
             POWER,
             TUNING,

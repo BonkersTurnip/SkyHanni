@@ -53,6 +53,18 @@ enum class TabWidget(
         // language=RegExp
         "Gems: (?<gems>.*)",
     ),
+    GOD_POTION(
+        // language=RegExp
+        "You have a God Potion active! (?<time>.*)",
+    ),
+    REGULAR_POTIONS(
+        // language=RegExp
+        "You have (?<count>\\d+) active effect(s?)\\..*",
+    ),
+    NO_POTIONS(
+        // language=RegExp
+        "No effects active\\..*",
+    ),
     FAIRY_SOULS(
         // language=RegExp
         "Fairy Souls: (?<got>\\d+)\\/(?<max>\\d+)",

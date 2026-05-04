@@ -12,15 +12,19 @@ import at.hannibal2.skyhanni.features.gui.customscoreboard.ScoreboardLine.Compan
 import at.hannibal2.skyhanni.utils.NumberUtil.addSeparators
 import at.hannibal2.skyhanni.utils.NumberUtil.formatDouble
 import at.hannibal2.skyhanni.utils.NumberUtil.shortFormat
+import at.hannibal2.skyhanni.utils.RegexUtils.firstComponentMatcher
 import at.hannibal2.skyhanni.utils.RegexUtils.firstMatcher
 import at.hannibal2.skyhanni.utils.RegexUtils.groupOrNull
 import at.hannibal2.skyhanni.utils.RegexUtils.matchGroup
 import at.hannibal2.skyhanni.utils.RegexUtils.matchMatcher
 import at.hannibal2.skyhanni.utils.StringUtils.removeResets
 import at.hannibal2.skyhanni.utils.StringUtils.trimWhiteSpace
+import at.hannibal2.skyhanni.utils.TabListData
 import at.hannibal2.skyhanni.utils.TimeUtils
 import at.hannibal2.skyhanni.utils.chat.TextHelper
 import at.hannibal2.skyhanni.utils.compat.formattedTextCompat
+import io.github.notenoughupdates.moulconfig.gui.component.TabComponent
+import java.awt.Component
 import java.util.regex.Pattern
 
 @Suppress("TooManyFunctions")
@@ -95,6 +99,15 @@ object CustomScoreboardUtils {
         ?: "0"
 
     internal fun getGems() = TabWidget.GEMS.matchMatcherFirstLine { group("gems") } ?: "0"
+
+    internal fun getGodPotion(): String {
+        val foot: net.minecraft.network.chat.Component = TabListData.footer ?: return "§8Loading..."
+        val lines = TextHelper.split(foot, "\n") ?: listOf(foot)
+        return TabWidget.GOD_POTION.pattern.firstComponentMatcher(lines) { group("time") }
+            ?: if (TabWidget.REGULAR_POTIONS.pattern.firstComponentMatcher(lines) {} != null) "§cNot Active"
+            else if (TabWidget.NO_POTIONS.pattern.firstComponentMatcher(lines) {} != null) "§cNot Active"
+            else "§8Loading..."
+    }
 
     internal fun getHeat() = MiningApi.heatDisplay
 
